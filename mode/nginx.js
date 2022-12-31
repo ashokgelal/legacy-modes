@@ -41,10 +41,10 @@ function tokenBase(stream, state) {
 
   var ch = stream.next();
   if (ch == "@") {stream.eatWhile(/[\w\\\-]/); return ret("meta", stream.current());}
-  else if (ch == "/" && stream.eat("*")) {
+  /*else if (ch == "/" && stream.eat("*")) {
     state.tokenize = tokenCComment;
     return tokenCComment(stream, state);
-  }
+  }*/
   else if (ch == "<" && stream.eat("!")) {
     state.tokenize = tokenSGMLComment;
     return tokenSGMLComment(stream, state);
